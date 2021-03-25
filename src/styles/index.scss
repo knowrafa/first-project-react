@@ -1,0 +1,136 @@
+$background-color: #eee;
+
+ul.default-list {
+  list-style: unset;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  li.default-list-item {
+    display: flex;
+    width: calc(100% - 8px);
+    padding: 8px;
+    margin: 4px 0;
+    background-color: lighten($background-color, 5%);
+    align-items: center;
+    border-radius: 5px;
+    transition: all 0.2s ease-out;
+
+    &:not(.no-feedback):hover {
+      background-color: darken($background-color, 5%);
+      opacity: 0.7;
+
+      &:not(.no-cursor):hover {
+        cursor: pointer;
+      }
+    }
+
+    &.disabled-cursor {
+      cursor: not-allowed;
+    }
+
+    &:not(.no-cursor):active {
+      opacity: 1 !important;
+    }
+  }
+}
+
+.ant-skeleton-title {
+  margin: unset !important;
+}
+
+// ⬇ ListPage ==================================================================
+section.omnicrud-card-wrapper {
+  height: calc(100% - 16px);
+  width: calc(100% - 16px);
+  display: flex;
+
+  & > .omnicrud-card,
+  & > .omnicrud-fixed-filters {
+    & > .ant-card-body {
+      min-height: calc(100% - 256px);
+      max-height: calc(100% - 128px);
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+
+  & > .omnicrud-card {
+    flex: 3;
+    top: 8px;
+    left: 8px;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.02);
+
+    & > .ant-card-head {
+      padding-right: 0;
+
+      & > .ant-card-head-wrapper > .ant-card-head-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 6;
+      }
+    }
+  }
+
+  & > .omnicrud-fixed-filters {
+    flex: 1;
+    top: 8px;
+    left: 8px;
+    margin-right: 8px;
+  }
+}
+
+.omnicrud-add-modal {
+  & > .ant-modal-content > .ant-modal-header,
+  & > .ant-modal-content > .ant-modal-footer {
+    border-color: transparent !important;
+  }
+}
+
+.omnicrud-add-button,
+.omnicrud-apply-filters-button,
+.omnicrud-clear-filters-button {
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+    0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.02);
+}
+
+.omnicrud-add-button {
+  height: 48px !important;
+  width: 48px !important;
+}
+
+.omnicrud-filter-button {
+  margin-right: 8px;
+}
+
+.omnicrud-pagination-wrapper {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translate(-50%);
+  max-width: calc(100% - 256px);
+
+  .ant-pagination {
+    background-color: #fff5;
+    backdrop-filter: blur(20px);
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.02);
+
+    @supports (
+      (-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))
+    ) {
+      background-color: #fff5;
+    }
+
+    .ant-pagination-item-active {
+      background-color: var(--primary-color) !important;
+
+      & > a {
+        color: white !important;
+      }
+    }
+  }
+}
